@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Қыз Жібек жыры - Жаңартылған тапсырмалар</title>
+    <style>
+        :root {
+            --primary: #8B4513; /* Қоңыр түс - даланы еске салады */
+            --secondary: #5D8AA8; /* Көкшіл түс - көк аспанды еске салады */
+            --accent: #C19A6B; /* Алтын түс - даланың алтын түстері */
+            --background: #F5F5DC; /* Ашық бежевый - қағазды еске салады */
+            --text: #2F4F4F; /* Қою жасыл-көк - контрастты мәтін */
+            --card: #FFF8DC; /* Ашық бежевый - карточкаларға */
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background);
+            color: var(--text);
+            background-image: url('1.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: rgba(139, 69, 19, 0.9); /* Жарық өткізетін қоңыр */
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            background-image: url('1ф.png');
+            background-blend-mode: overlay;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-family: 'Times New Roman', serif;
+        }
+
+        h2, h3 {
+            color: var(--primary);
+            font-family: 'Times New Roman', serif;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .task-card {
+            background-color: rgba(255, 248, 220, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .task-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .task-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        /* Әр тапсырмаға арналған ерекше фондар */
+        #task1 {
+            background-image: url('2.jpg');
+            background-size: cover;
+            background-blend-mode: overlay;
+        }
+
+        #task2 {
+            background-image: url('https://i.imgur.com/task2-bg.jpg');
+            background-size: cover;
+            background-blend-mode: overlay;
+        }
+
+        #task3 {
+            background-image: url('https://i.imgur.com/task3-bg.jpg');
+            background-size: cover;
+            background-blend-mode: overlay;
+        }
+
+        #task4 {
+            background-image: url('https://i.imgur.com/task4-bg.jpg');
+            background-size: cover;
+            background-blend-mode: overlay;
+        }
+
+        #task5 {
+            background-image: url('https://i.imgur.com/task5-bg.jpg');
+            background-size: cover;
+            background-blend-mode: overlay;
+        }
+
+        #task6 {
+            background-image: url('https://i.imgur.com/task6-bg.jpg');
+            background-size: cover;
+            background-blend-mode: overlay;
+        }
+
+        #task7 {
+            background-image: url('https://i.imgur.com/task7-bg.jpg');
+            background-size: cover;
+            background-blend-mode: overlay;
+        }
+
+        .media-container {
+            margin: 25px 0;
+            text-align: center;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 10px;
+        }
+
+        .media-container:hover {
+            transform: scale(1.02);
+        }
+
+        .media-container img {
+            max-width: 100%;
+            border-radius: 8px;
+            border: 2px solid var(--accent);
+        }
+
+        audio, video {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .character-card {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            border-left: 5px solid var(--primary);
+        }
+
+        .character-card:hover {
+            transform: translateX(10px);
+        }
+
+        .character-card img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 3px solid var(--accent);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn {
+            padding: 12px 25px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            margin-top: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            background: linear-gradient(to right, var(--accent), var(--primary));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+            border-left: 5px solid;
+        }
+
+        .correct {
+            background-color: rgba(223, 240, 216, 0.9);
+            color: #3c763d;
+            border-left-color: #3c763d;
+        }
+
+        .incorrect {
+            background-color: rgba(242, 222, 222, 0.9);
+            color: #a94442;
+            border-left-color: #a94442;
+        }
+
+        .option {
+            padding: 12px 20px;
+            margin: 8px 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid var(--accent);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .option:hover {
+            background-color: var(--secondary);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .option.selected {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .comic-panel {
+            border: 2px solid var(--accent);
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .comic-panel:hover {
+            transform: scale(1.02);
+        }
+
+        .comic-panel img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .speech-bubble {
+            background-color: white;
+            border: 2px solid var(--primary);
+            border-radius: 20px;
+            padding: 15px;
+            margin: 15px 0;
+            position: relative;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 20%;
+            border-width: 15px 15px 0;
+            border-style: solid;
+            border-color: var(--primary) transparent transparent;
+        }
+
+        .match-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+
+        .match-column {
+            width: 48%;
+            min-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .match-item {
+            padding: 12px;
+            margin: 8px 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid var(--accent);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .match-item:hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .matched {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .timeline-container {
+            margin: 25px 0;
+        }
+
+        .timeline-item {
+            padding: 12px;
+            margin: 8px 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            cursor: move;
+            transition: all 0.3s;
+            border-left: 5px solid var(--secondary);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-item:hover {
+            transform: translateX(5px);
+        }
+
+        .correct-order {
+            background-color: rgba(223, 240, 216, 0.9);
+            border-left-color: #3c763d;
+        }
+
+        .incorrect-order {
+            background-color: rgba(242, 222, 222, 0.9);
+            border-left-color: #a94442;
+        }
+
+        textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            margin-top: 10px;
+            font-family: Arial, sans-serif;
+            transition: all 0.3s;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(139, 69, 19, 0.2);
+        }
+
+        /* Жауаптарды ашып-жабу үшін */
+        .collapsible {
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1.1rem;
+            margin-top: 15px;
+            background-color: rgba(139, 69, 19, 0.1);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .collapsible:hover {
+            background-color: rgba(139, 69, 19, 0.2);
+        }
+
+        .content {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 0 0 8px 8px;
+        }
+
+        /* Жеткізушілер үшін қосымша ақпарат */
+        .teacher-notes {
+            background-color: rgba(93, 138, 168, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 5px solid var(--secondary);
+        }
+
+        /* Жауаптар кестесі */
+        .answers-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .answers-table th, .answers-table td {
+            border: 1px solid var(--accent);
+            padding: 12px;
+            text-align: left;
+        }
+
+        .answers-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .answers-table tr:nth-child(even) {
+            background-color: rgba(255, 248, 220, 0.5);
+        }
+
+        .answers-table tr:hover {
+            background-color: rgba(193, 154, 107, 0.2);
+        }
+
+        /* Киіз үй стиліндегі элемент */
+        .yurt-style {
+            background-color: white;
+            border-radius: 50%;
+            padding: 20px;
+            display: inline-block;
+            box-shadow: 0 0 0 10px var(--accent), 
+                        0 0 0 15px var(--secondary), 
+                        0 0 0 20px var(--primary);
+            margin: 30px auto;
+            max-width: 80%;
+        }
+
+        /* Мобильдік ыңғайлылық */
+        @media (max-width: 768px) {
+            .match-column {
+                width: 100%;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .task-card {
+                padding: 15px;
+            }
+            
+            .character-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .character-card img {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+
+        /* Анимациялар */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        .shake {
+            animation: shake 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <header class="pulse">
+        <h1>Қыз Жібек жыры</h1>
+        <p>Интерактивті оқу тапсырмалары</p>
+    </header>
+
+    <div class="container">
+        <!-- Тапсырма 1: Сурет бойынша сұрақтар -->
+        <div class="task-card" id="task1">
+            <h2>1. Сурет бойынша сұрақтар</h2>
+            <div class="media-container yurt-style">
+                <img src="22.jpg" alt="Қыз Жібек жырынан сурет">
+            </div>
+            <p><strong>Суретке қарап, мына сұрақтарға жауап беріңіз:</strong></p>
+            <ol>
+                <li>Суретте қандай кейіпкерлер бар деп ойлайсыз?</li>
+                <li>Қандай оқиға болып жатыр?</li>
+                <li>Бұл жырдың қай бөлігіне қатысты деп ойлайсыз?</li>
+            </ol>
+            <textarea rows="5" placeholder="Жауабыңызды осы жерге жазыңыз..." class="pulse"></textarea>
+            
+            <button class="btn" onclick="checkTask('task1')">Жауапты тексеру</button>
+            <div class="feedback" id="feedback1"></div>
+            
+            <button type="button" class="collapsible">Дұрыс жауаптарды көрсету</button>
+            <div class="content">
+                <p><strong>Үлгі жауап:</strong></p>
+                <ol>
+                    <li>Суретте Төлеген мен Жібек кейіпкерлері бар.</li>
+                    <li>Олардың алғашқы кездесуі болып жатыр.</li>
+                    <li>Бұл жырдың бастапқы бөлігіне қатысты, қаһармандардың танысу сахнасы.</li>
+                </ol>
+            </div>
+            
+
+        <!-- Тапсырма 2: Сәйкестендір -->
+        <div class="task-card" id="task2">
+            <h2>2. Кейіпкерлер мен мінездемелер</h2>
+            <p>Кейіпкерлерді олардың сипаттамаларымен сәйкестендіріңіз:</p>
+              <div class="media-container yurt-style">
+                <img src="4.jpg" alt="Қыз Жібек жырынан сурет">
+            </div>
+                
+            <div class="match-container">
+                <div class="match-column" id="characters">
+                    <div class="match-item" draggable="true" data-id="1">Төлеген</div>
+                    <div class="match-item" draggable="true" data-id="2">Жібек</div>
+                    <div class="match-item" draggable="true" data-id="3">Бекежан</div>
+                    <div class="match-item" draggable="true" data-id="4">Шеге</div>
+                </div>
+                
+                <div class="match-column" id="descriptions">
+                    <div class="match-item" draggable="true" data-id="3">Сатқындық жасаған</div>
+                    <div class="match-item" draggable="true" data-id="1">Батырлық көрсеткен</div>
+                    <div class="match-item" draggable="true" data-id="2">Ақылды әрі сұлу</div>
+                    <div class="match-item" draggable="true" data-id="4">Айлакер әрі қу</div>
+                </div>
+            </div>
+            
+            <button class="btn" onclick="checkMatching()">Тексеру</button>
+            <div class="feedback" id="feedback2"></div>
+            
+            <button type="button" class="collapsible">Дұрыс жауаптарды көрсету</button>
+            <div class="content">
+                <table class="answers-table">
+                    <tr>
+                        <th>Кейіпкер</th>
+                        <th>Сипаттама</th>
+                    </tr>
+                    <tr>
+                        <td>Төлеген</td>
+                        <td>Батырлық көрсеткен</td>
+                    </tr>
+                    <tr>
+                        <td>Жібек</td>
+                        <td>Ақылды әрі сұлу</td>
+                    </tr>
+                    <tr>
+                        <td>Бекежан</td>
+                        <td>Сатқындық жасаған</td>
+                    </tr>
+                    <tr>
+                        <td>Шеге</td>
+                        <td>Айлакер әрі қу</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Тапсырма 3: Хронологиялық кесте -->
+        <div class="task-card" id="task3">
+            <h2>3. Оқиғалар реті</h2>
+            
+             <div class="media-container">
+                <img src="5.jpg" alt="Оқиғалар реті">
+            </div>
+            <p>Оқиғаларды орын алған ретімен орналастырыңыз:</p>
+            
+            <div class="timeline-container" id="timeline">
+                <div class="timeline-item" draggable="true" data-order="3">Бекежанның сатқындығы</div>
+                <div class="timeline-item" draggable="true" data-order="1">Төлегеннің жолға шығуы</div>
+                <div class="timeline-item" draggable="true" data-order="4">Жібектің қайғысы</div>
+                <div class="timeline-item" draggable="true" data-order="2">Жібекпен кездесу</div>
+                <div class="timeline-item" draggable="true" data-order="5">Төлегеннің кек алуы</div>
+            </div>
+            
+            <button class="btn" onclick="checkTimeline()">Тексеру</button>
+            <div class="feedback" id="feedback3"></div>
+            
+            <button type="button" class="collapsible">Дұрыс жауаптарды көрсету</button>
+            <div class="content">
+                <ol>
+                    <li>Төлегеннің жолға шығуы</li>
+                    <li>Жібекпен кездесу</li>
+                    <li>Бекежанның сатқындығы</li>
+                    <li>Жібектің қайғысы</li>
+                    <li>Төлегеннің кек алуы</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Тапсырма 4: Диалогті жалғастыр -->
+        <div class="task-card" id="task4">
+            <h2>4. Диалогті жалғастыр</h2>
+            <div class="media-container">
+                <audio controls>
+                    <source src="диа.m4a" type="audio/mpeg">
+                    Браузеріңіз аудионы қолдамайды.
+                </audio>
+            </div>
+            <p>Төмендегі диалогты тыңдап, оны жалғастырыңыз:</p>
+            
+            <div class="speech-bubble">Анасы: Сен кеткен соң, қарағым,
+Өледі кемпір-шалыңыз,
+Сансызбай болса жас еді
+Жүреміз кімге алданып?</div>
+            <div class="speech-bubble">Төлеген: – Қой, шешеке, жылама,
+Жылағаның бола ма?...</div>
+            
+            <textarea rows="3" placeholder="Диалогты осы жерге жалғастырыңыз..."></textarea>
+            
+            <button class="btn" onclick="checkDialogue()">Тексеру</button>
+            <div class="feedback" id="feedback4"></div>
+            
+            <button type="button" class="collapsible">Үлгі жауапты көрсету</button>
+            <div class="content">
+                <div class="speech-bubble">Анасы: Сен кеткен соң, қарағым,
+Өледі кемпір-шалыңыз,
+Сансызбай болса жас еді
+Жүреміз кімге алданып?</div>
+                <div class="speech-bubble">Төлеген: Бекер босқа, шешеке-ау,
+Көзіңнің жасын бұлама.
+</div>
+                <div class="speech-bubble">Анасы: – Келгін, балам, қайт-сәна,
+Әкеңе сырың айт-сәна.
+Патша қызын алсаң да
+Өз еліңде жат-сәна.
+</div>
+                <div class="speech-bubble">Төлеген: – Айналайын, шешеке-ау,
+Тай, құнан, қой қаңғырып
+Бұралқы болар қораға.
+Бір сұлу алмай, шешеке-ау,
+Сірә да, көңілім тына ма?
+</div>
+            </div>
+        </div>
+
+        <!-- Тапсырма 5: Комикс құрастыр -->
+        <div class="task-card" id="task5">
+            <h2>5. Комикс құрастыр</h2>
+            <div class="media-container">
+                <video controls>
+                    <source src="ҚЖ Филм ‐ Clipchamp арқылы жасалған.mp4" type="video/mp4">
+                    Браузеріңіз видеоны қолдамайды.
+                </video>
+            </div>
+            <p>Жырдан 4 эпизодты таңдап, комикс құрастырыңыз:</p>
+            
+            <div class="comic-panel">
+                <img src="ТЖ.png" alt="1-панель - Төлегеннің Жібекпен кездесуі">
+                <textarea rows="2" placeholder="Репликаны осы жерге жазыңыз..."></textarea>
+            </div>
+            
+            <div class="comic-panel">
+                <img src="Төл.png" alt="2-панель - Жібек пен Шегенің әңгімесі">
+                <textarea rows="2" placeholder="Репликаны осы жерге жазыңыз..."></textarea>
+            </div>
+            
+            <div class="comic-panel">
+                <img src="ТБ.png" alt="3-панель - Бекежанның сатқындығы">
+                <textarea rows="2" placeholder="Репликаны осы жерге жазыңыз..."></textarea>
+            </div>
+            
+            <div class="comic-panel">
+                <img src="ЖЖ.png" alt="4-панель - Жібек пен жеңгесінің сырласу">
+                <textarea rows="2" placeholder="Репликаны осы жерге жазыңыз..."></textarea>
+            </div>
+            
+            <button class="btn" onclick="checkComic()">Тексеру</button>
+            <div class="feedback" id="feedback5"></div>
+            
+        
+
+        <!-- Тапсырма 6: Кейіпкерге мінездеме -->
+        <div class="task-card" id="task6">
+            <h2>6. Кейіпкерге мінездеме</h2>
+            <div class="media-container">
+                <img src="craiyon_223632_image.png" alt="Кейіпкерлер">
+            </div>
+            <p>Төмендегі кейіпкерлердің бірін таңдап, оған мінездеме жазыңыз:</p>
+            
+            <select id="character-select">
+                <option value="tolegen">Төлеген</option>
+                <option value="jibek">Жібек</option>
+                <option value="bekezhan">Бекежан</option>
+                <option value="shege">Шеге</option>
+            </select>
+            
+            <textarea rows="8" placeholder="Мінездемеңізді осы жерге жазыңыз..."></textarea>
+            
+            <button class="btn" onclick="checkDescription()">Тексеру</button>
+            <div class="feedback" id="feedback6"></div>
+            
+            <button type="button" class="collapsible">Үлгі мінездемелерді көрсету</button>
+            <div class="content">
+                <h4>Төлеген:</h4>
+                <p>Төлеген - жырдың басты кейіпкері, батыр жігіт. Ол Жібекке ғашық болып, оған қол жеткізу үшін көптеген қиындықтарға тап болады. Төлеген қайсар, адал және махаббатқа сенімді. Ол өз сезімдері үшін күреседі және қауіптерге қарамастан Жібекті қорғайды.</p>
+                
+                <h4>Жібек:</h4>
+                <p>Жібек - жырдың басты әйел кейіпкері, ақылды және сұлу қыз. Ол Төлегенді жасырын сүйсе де, әдет-ғұрыптарға бағынады. Жібектің кейіптемесінде оның ақылдылығы, сенімділігі және күйеуін сүюі айқын көрінеді.</p>
+            </div>
+        </div>
+
+        <!-- Тапсырма 7: Бағалау және кері байланыс -->
+        <div class="task-card" id="task7">
+            <h2>7. Жұмысыңызды бағалаңыз</h2>
+            <div class="media-container">
+                <img src="КЕр.jpg" alt="Кері байланыс">
+            </div>
+            
+            <div class="character-card">
+                <img src="көң.jpeg" alt="Көңілді">
+                <div>
+                    <h4>Жұмысымды қалай орындадым?</h4>
+                    <select id="self-rating">
+                        <option value="5">Өте жақсы (9-10 балл)</option>
+                        <option value="4">Жақсы (7-8 балл)</option>
+                        <option value="3">Қанағаттанарлық (5-6 балл)</option>
+                        
+                    </select>
+                </div>
+            </div>
+            
+            <div class="character-card">
+                <img src="қи.jpg" alt="Ойланады">
+                <div>
+                    <h4>Қандай қиындықтар болды?</h4>
+                    <textarea rows="3"></textarea>
+                </div>
+            </div>
+            
+            <div class="character-card">
+                <img src="үй.jpeg" alt="Жігерлі">
+                <div>
+                    <h4>Мен не үйрендім?</h4>
+                    <textarea rows="3"></textarea>
+                </div>
+            </div>
+            
+            <button class="btn" onclick="submitFeedback()">Жіберу</button>
+            <div class="feedback" id="feedback7"></div>
+        </div>
+    </div>
+
+    <script>
+        // Тапсырмаларды тексеру функциялары
+        function checkTask(taskId) {
+            const feedback = document.getElementById(`feedback${taskId.slice(-1)}`);
+            feedback.textContent = "Жауабыңыз сақталды! Мұғалім тексереді.";
+            feedback.className = "feedback correct";
+            feedback.style.display = "block";
+        }
+
+        // Сәйкестендіруді тексеру
+        function checkMatching() {
+            const feedback = document.getElementById("feedback2");
+            const matchedItems = document.querySelectorAll(".matched");
+            
+            if (matchedItems.length === 4) {
+                feedback.textContent = "Керемет! Барлық сәйкестендірулер дұрыс! +10 балл";
+                feedback.className = "feedback correct";
+                updateScore(10);
+            } else {
+                const score = Math.floor(matchedItems.length * 2.5); // Әр дұрыс жауап 2.5 балл
+                feedback.textContent = matchedItems.length > 0 ? 
+                    `Сіз ${matchedItems.length}/4 сәйкестендіруді дұрыс орындадыңыз. +${score} балл` : 
+                    "Сәйкестендірулерді орындаңыз.";
+                feedback.className = "feedback incorrect";
+                if (score > 0) updateScore(score);
+            }
+            feedback.style.display = "block";
+        }
+
+        // Уақыт тізбегін тексеру
+        function checkTimeline() {
+            const feedback = document.getElementById("feedback3");
+            const items = document.querySelectorAll("#timeline .timeline-item");
+            let correctCount = 0;
+            
+            items.forEach((item, index) => {
+                const correctOrder = parseInt(item.getAttribute("data-order"));
+                if (index + 1 === correctOrder) {
+                    item.classList.add("correct-order");
+                    item.classList.remove("incorrect-order");
+                    correctCount++;
+                } else {
+                    item.classList.add("incorrect-order");
+                    item.classList.remove("correct-order");
+                }
+            });
+            
+            if (correctCount === 5) {
+                feedback.textContent = "Тамаша! Оқиғаларды дұрыс реттедіңіз! +10 балл";
+                feedback.className = "feedback correct";
+                updateScore(10);
+            } else {
+                const score = correctCount * 2; // Әр дұрыс жауап 2 балл
+                feedback.textContent = `Сіз ${correctCount}/5 оқиғаны дұрыс орналастырдыңыз. +${score} балл`;
+                feedback.className = "feedback incorrect";
+                if (score > 0) updateScore(score);
+            }
+            feedback.style.display = "block";
+        }
+
+        // Диалогты тексеру
+        function checkDialogue() {
+            const feedback = document.getElementById("feedback4");
+            const answer = document.querySelector("#task4 textarea").value.trim();
+            
+            if (answer.length > 0) {
+                feedback.textContent = "Диалог құру тапсырмасы орындалды! +10 балл";
+                feedback.className = "feedback correct";
+                updateScore(10);
+            } else {
+                feedback.textContent = "Диалогты жалғастырыңыз!";
+                feedback.className = "feedback incorrect";
+            }
+            feedback.style.display = "block";
+        }
+
+        // Комиксті тексеру
+        function checkComic() {
+            const feedback = document.getElementById("feedback5");
+            const textareas = document.querySelectorAll("#task5 textarea");
+            let filledCount = 0;
+            
+            textareas.forEach(textarea => {
+                if (textarea.value.trim().length > 0) {
+                    filledCount++;
+                }
+            });
+            
+            if (filledCount === 4) {
+                feedback.textContent = "Керемет! Барлық панельдерге репликалар жазылды! +10 балл";
+                feedback.className = "feedback correct";
+                updateScore(10);
+            } else {
+                const score = filledCount * 2.5; // Әр толтырылған панель 2.5 балл
+                feedback.textContent = filledCount > 0 ? 
+                    `Сіз ${filledCount}/4 панельге репликалар жазылды. +${score} балл` : 
+                    "Барлық панельдерге репликалар жазыңыз!";
+                feedback.className = "feedback incorrect";
+                if (score > 0) updateScore(score);
+            }
+            feedback.style.display = "block";
+        }
+
+        // Мінездемені тексеру
+        function checkDescription() {
+            const feedback = document.getElementById("feedback6");
+            const answer = document.querySelector("#task6 textarea").value.trim();
+            
+            if (answer.length > 30) {
+                feedback.textContent = "Мінездеме жазу тапсырмасы орындалды! +10 балл";
+                feedback.className = "feedback correct";
+                updateScore(10);
+            } else if (answer.length > 0) {
+                feedback.textContent = "Мінездемеңіз өте қысқа, толықтырыңыз! +5 балл";
+                feedback.className = "feedback incorrect";
+                updateScore(5);
+            } else {
+                feedback.textContent = "Мінездеме жазыңыз!";
+                feedback.className = "feedback incorrect";
+            }
+            feedback.style.display = "block";
+        }
+
+        // Кері байланысты жіберу
+        function submitFeedback() {
+            const feedback = document.getElementById("feedback7");
+            const rating = document.getElementById("self-rating").value;
+            
+            feedback.textContent = `Кері байланысыңыз үшін рахмет! Сіз өз жұмысыңызды ${rating} балл деп бағаладыңыз.`;
+            feedback.className = "feedback correct";
+            feedback.style.display = "block";
+            
+            // Өзін-өзі бағалауға балл қосу
+            updateScore(parseInt(rating));
+        }
+
+        // Жалпы баллды жаңарту
+        let totalScore = 0;
+        function updateScore(points) {
+            totalScore += points;
+            // Баллды сақтау немесе көрсету үшін қосымша код
+            console.log(`Жалпы балл: ${totalScore}`);
+        }
+
+        // Драг-энд-дроп функциялары
+        document.addEventListener('DOMContentLoaded', function() {
+            // Сәйкестендіру үшін
+            const matchItems = document.querySelectorAll('.match-item');
+            matchItems.forEach(item => {
+                item.addEventListener('dragstart', function(e) {
+                    e.dataTransfer.setData('text/plain', e.target.dataset.id);
+                    setTimeout(() => {
+                        e.target.classList.add('dragging');
+                    }, 0);
+                });
+
+                item.addEventListener('dragend', function(e) {
+                    e.target.classList.remove('dragging');
+                });
+            });
+
+            const matchColumns = document.querySelectorAll('.match-column');
+            matchColumns.forEach(column => {
+                column.addEventListener('dragover', function(e) {
+                    e.preventDefault();
+                    const dragging = document.querySelector('.dragging');
+                    const afterElement = getDragAfterElement(column, e.clientY);
+                    if (afterElement == null) {
+                        column.appendChild(dragging);
+                    } else {
+                        column.insertBefore(dragging, afterElement);
+                    }
+                });
+
+                column.addEventListener('drop', function(e) {
+                    e.preventDefault();
+                    const id = e.dataTransfer.getData('text/plain');
+                    const draggedItem = document.querySelector(`[data-id="${id}"]`);
+                    const isCharacter = draggedItem.parentElement.id === 'characters';
+                    const isDescription = draggedItem.parentElement.id === 'descriptions';
+                    
+                    if ((column.id === 'characters' && isDescription) || 
+                        (column.id === 'descriptions' && isCharacter)) {
+                        const counterpart = findCounterpart(draggedItem, column.id);
+                        if (counterpart) {
+                            counterpart.classList.add('matched');
+                            draggedItem.classList.add('matched');
+                        }
+                    }
+                });
+            });
+
+            // Уақыт тізбегі үшін
+            const timeline = document.getElementById('timeline');
+            timeline.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                const dragging = document.querySelector('.dragging');
+                const afterElement = getDragAfterElement(timeline, e.clientY);
+                if (afterElement == null) {
+                    timeline.appendChild(dragging);
+                } else {
+                    timeline.insertBefore(dragging, afterElement);
+                }
+            });
+
+            // Жауаптарды ашып-жабу үшін
+            const collapsibles = document.querySelectorAll('.collapsible');
+            collapsibles.forEach(coll => {
+                coll.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const content = this.nextElementSibling;
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                    } 
+                });
+            });
+        });
+
+        function getDragAfterElement(container, y) {
+            const draggableElements = [...container.querySelectorAll('.match-item:not(.dragging), .timeline-item:not(.dragging)')];
+            
+            return draggableElements.reduce((closest, child) => {
+                const box = child.getBoundingClientRect();
+                const offset = y - box.top - box.height / 2;
+                if (offset < 0 && offset > closest.offset) {
+                    return { offset: offset, element: child };
+                } else {
+                    return closest;
+                }
+            }, { offset: Number.NEGATIVE_INFINITY }).element;
+        }
+
+        function findCounterpart(item, targetColumnId) {
+            const id = item.dataset.id;
+            if (targetColumnId === 'characters') {
+                return document.querySelector(`#descriptions [data-id="${id}"]`);
+            } else {
+                return document.querySelector(`#characters [data-id="${id}"]`);
+            }
+        }
+
+        // Анимацияларды басқару
+        function animateElement(element, animation) {
+            element.classList.add(animation);
+            element.addEventListener('animationend', () => {
+                element.classList.remove(animation);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Қыз Жібек жыры - Интерактивті тапсырмалар</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        h1 {
+            color: #8e44ad;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .task-section {
+            display: none;
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .active {
+            display: block;
+        }
+        button {
+            background-color: #8e44ad;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #732d91;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .content-page {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .question {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .dictionary-term {
+            font-weight: bold;
+            color: #8e44ad;
+        }
+        .drag-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .drag-item {
+            padding: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            cursor: move;
+        }
+        .drop-area {
+            min-height: 100px;
+            border: 2px dashed #8e44ad;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .character-match {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .character, .quote {
+            padding: 8px 12px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+        }
+        .quote {
+            background-color: #d5e8d4;
+        }
+        .score-display {
+            text-align: center;
+            font-size: 24px;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #8e44ad;
+            color: white;
+            border-radius: 8px;
+        }
+        .hint-btn {
+            background-color: #f39c12;
+            float: right;
+        }
+        .hint-btn:hover {
+            background-color: #e67e22;
+        }
+        .shuffle-btn {
+            background-color: #3498db;
+            float: right;
+        }
+        .shuffle-btn:hover {
+            background-color: #2980b9;
+        }
+        .correct {
+            background-color: #2ecc71 !important;
+            color: white;
+        }
+        .incorrect {
+            background-color: #e74c3c !important;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Қыз Жібек жыры - Интерактивті тапсырмалар</h1>
+        
+        <div id="task1" class="task-section active">
+            <h2>1. Мазмұн</h2>
+            <div class="content-page">
+                <h3>Қыз Жібек жыры - кіріспе</h3>
+                <p>Қыз Жібек - қазақ халқының ең көрнекі лирикалық жырларының бірі. Жырда Жібек пен Төлегеннің махаббаты, олардың арасындағы кедергілер, қиыншылықтар баяндалады.</p>
+            </div>
+            <div class="content-page" style="display:none;">
+                <h3>Жібек пен Төлегеннің кездесуі</h3>
+                <p>Жібек қыз әсемдігімен, ақылымен, шеберлігімен еліне танымал. Төлеген жігіт батырлығымен, шешендігімен көзге түседі. Екеуі бір-бірін көрген сәтте ғашық болады.</p>
+            </div>
+            <div class="content-page" style="display:none;">
+                <h3>Жібектің қашып кетуі</h3>
+                <p>Жібек пен Төлегеннің махаббатына қарсы шыққандар оларды айыруға тырысады. Жібек қашып, Төлегеннен алыстайды. Бірақ Төлеген оны іздеп жүреді.</p>
+            </div>
+            <button onclick="nextPage(1)">Келесі бет</button>
+        </div>
+        
+        <div id="task2" class="task-section">
+            <h2>2. Біліп ал</h2>
+            <p>Жібек жырындағы маңызды оқиғалар мен фактілер:</p>
+            <ul>
+                <li>Жыр XV-XVI ғасырларда пайда болған</li>
+                <li>Қыз Жібек - лирикалық-эпикалық жыр</li>
+                <li>Негізгі тақырыбы - махаббат пен адалдық</li>
+                <li>Жырда қазақтың дәстүрлі тұрмысы, салт-дәстүрі көрініс тапқан</li>
+            </ul>
+            <div class="question">
+                <p>Жібек жыры қандай ғасырда пайда болған?</p>
+                <button onclick="checkAnswer(this, true)">XV-XVI ғасырларда</button>
+                <button onclick="checkAnswer(this, false)">XII-XIII ғасырларда</button>
+                <button onclick="checkAnswer(this, false)">XVIII ғасырда</button>
+            </div>
+            <button class="hint-btn" onclick="showHint(2)">Кілт</button>
+        </div>
+        
+        <div id="task3" class="task-section">
+            <h2>3. Сауал</h2>
+            <div class="question">
+                <p>Жібек қыздың ерекше қасиеттері қандай?</p>
+                <button onclick="checkAnswer(this, true)">Әсемдігі, ақылы, шеберлігі</button>
+                <button onclick="checkAnswer(this, false)">Батырлығы, ерлігі</button>
+                <button onclick="checkAnswer(this, false)">Байлығы, ықпалы</button>
+            </div>
+            <div class="question">
+                <p>Төлеген жігіттің қандай қасиеттері бар?</p>
+                <button onclick="checkAnswer(this, true)">Батырлығы, шешендігі</button>
+                <button onclick="checkAnswer(this, false)">Шеберлігі, әдемілігі</button>
+                <button onclick="checkAnswer(this, false)">Байлығы, билігі</button>
+            </div>
+            <div class="question">
+                <p>Жібек пен Төлегеннің арасында не болды?</p>
+                <button onclick="checkAnswer(this, true)">Олар бір-бірін көрген сәтте ғашық болды</button>
+                <button onclick="checkAnswer(this, false)">Олар бірге өскен</button>
+                <button onclick="checkAnswer(this, false)">Оларды ата-аналары үйлендірді</button>
+            </div>
+            <button class="hint-btn" onclick="showHint(3)">Кілт</button>
+            <button class="shuffle-btn" onclick="shuffleAnswers(3)">Араластыру</button>
+        </div>
+        
+        <div id="task4" class="task-section">
+            <h2>4. Сөздік</h2>
+            <p><span class="dictionary-term">Жыр</span> - поэзиялық шығарма, әдебиеттің өлеңмен жазылатын түрі.</p>
+            <p><span class="dictionary-term">Лирикалық</span> - сезім, эмоция, ішкі әлемді бейнелейтін.</p>
+            <p><span class="dictionary-term">Эпикалық</span> - оқиғаны, тарихи құбылысты баяндайтын.</p>
+            <p><span class="dictionary-term">Махаббат</span> - адамдар арасындағы қуатты жанашырлық сезімі.</p>
+            <div class="question">
+                <p>"Эпикалық" сөзінің мағынасы қандай?</p>
+                <button onclick="checkAnswer(this, true)">Оқиғаны, тарихи құбылысты баяндайтын</button>
+                <button onclick="checkAnswer(this, false)">Сезім, эмоцияны бейнелейтін</button>
+                <button onclick="checkAnswer(this, false)">Күлкілі, әзілді шығарма</button>
+            </div>
+            <button class="hint-btn" onclick="showHint(4)">Кілт</button>
+        </div>
+        
+        <div id="task5" class="task-section">
+            <h2>5. Тірек сөздер</h2>
+            <p>Төмендегі сөздерді қолданып, Жібек жыры туралы қысқаша шығарма жазыңыз:</p>
+            <div class="drag-container">
+                <div class="drag-item" draggable="true" ondragstart="drag(event)">махаббат</div>
+                <div class="drag-item" draggable="true" ondragstart="drag(event)">қиыншылық</div>
+                <div class="drag-item" draggable="true" ondragstart="drag(event)">адалдық</div>
+                <div class="drag-item" draggable="true" ondragstart="drag(event)">кедергі</div>
+                <div class="drag-item" draggable="true" ondragstart="drag(event)">жыр</div>
+            </div>
+            <p>Мәтінді жазыңыз:</p>
+            <div class="drop-area" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+            
+            <h3 style="margin-top: 30px;">Оқиғаларды ретімен орналастыр</h3>
+            <div class="drag-container" id="events-sequence">
+                <div class="drag-item" draggable="true" ondragstart="drag(event)">Жібек пен Төлегеннің кездесуі</div>
+                <div class="drag-item" draggable="true" ondragstart="drag(event)">Жібектің қашып кетуі</div>
+                <div class="drag-item" draggable="true" ondragstart="drag(event)">Төлегеннің Жібекті іздеуі</div>
+                <div class="drag-item" draggable="true" ondragstart="drag(event)">Жібектің қайтуы</div>
+            </div>
+            <p>Дұрыс ретті құрастырыңыз:</p>
+            <div class="drop-area" id="sequence-drop" ondragover="allowDrop(event)" ondrop="dropSequence(event)"></div>
+            <button onclick="checkSequence()">Тексеру</button>
+            <button class="hint-btn" onclick="showHint(5)">Кілт</button>
+            <button class="shuffle-btn" onclick="shuffleEvents()">Араластыру</button>
+        </div>
+        
+        <div id="task6" class="task-section">
+            <h2>6. Кейіпкерлер сөздерін сәйкестендіру</h2>
+            <p>Кейіпкерлерді олардың сөздерімен сәйкестендіріңіз:</p>
+            <div class="character-match">
+                <div class="character" draggable="true" ondragstart="drag(event)" id="char1">Жібек</div>
+                <div class="character" draggable="true" ondragstart="drag(event)" id="char2">Төлеген</div>
+                <div class="character" draggable="true" ondragstart="drag(event)" id="char3">Бекежан</div>
+                
+                <div class="quote" draggable="true" ondragstart="drag(event)" id="quote1">"Құдайым-ай, құдайым-ай, қайда барасың?"</div>
+                <div class="quote" draggable="true" ondragstart="drag(event)" id="quote2">"Жібек деген қыз бар екен, көргенге тұрар қыз бар екен"</div>
+                <div class="quote" draggable="true" ondragstart="drag(event)" id="quote3">"Төлеген деген жігіт бар екен, көргенге тұрар жігіт бар екен"</div>
+            </div>
+            <p>Сәйкестендіруді осы жерге апарыңыз:</p>
+            <div class="drop-area" id="match-drop" ondragover="allowDrop(event)" ondrop="dropMatch(event)"></div>
+            <button onclick="checkMatches()">Тексеру</button>
+            <button class="hint-btn" onclick="showHint(6)">Кілт</button>
+            <button class="shuffle-btn" onclick="shuffleCharacters()">Араластыру</button>
+        </div>
+        
+        <div id="task7" class="task-section">
+            <h2>7. Нәтижелер</h2>
+            <div class="score-display">
+                Сіз жинаған ұпай: <span id="total-score">0</span>
+            </div>
+            <div id="mistakes-list" style="margin-top: 20px;">
+                <h3>Қателер:</h3>
+                <ul id="mistakes">
+                    <!-- Қателер мұнда көрсетіледі -->
+                </ul>
+            </div>
+            <button onclick="showAllHints()">Барлық дұрыс жауаптарды көрсету</button>
+        </div>
+        
+        <div class="navigation">
+            <button id="prev-btn" onclick="prevTask()">Алдыңғы</button>
+            <button id="next-btn" onclick="nextTask()">Келесі</button>
+        </div>
+    </div>
+
+    <script>
+        let currentTask = 1;
+        const totalTasks = 7;
+        let score = 0;
+        let mistakes = [];
+        const correctSequence = [
+            "Жібек пен Төлегеннің кездесуі",
+            "Жібектің қашып кетуі",
+            "Төлегеннің Жібекті іздеуі",
+            "Жібектің қайтуы"
+        ];
+        const correctMatches = {
+            "char1": "quote1",
+            "char2": "quote2",
+            "char3": "quote3"
+        };
+        let currentMatches = {};
+
+        function showTask(taskNumber) {
+            document.querySelectorAll('.task-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(`task${taskNumber}`).classList.add('active');
+            currentTask = taskNumber;
+            
+            document.getElementById('prev-btn').style.display = taskNumber === 1 ? 'none' : 'block';
+            document.getElementById('next-btn').style.display = taskNumber === totalTasks ? 'none' : 'block';
+        }
+
+        function nextTask() {
+            if (currentTask < totalTasks) {
+                showTask(currentTask + 1);
+            }
+        }
+
+        function prevTask() {
+            if (currentTask > 1) {
+                showTask(currentTask - 1);
+            }
+        }
+
+        function nextPage(taskNumber) {
+            const pages = document.querySelectorAll(`#task${taskNumber} .content-page`);
+            let foundCurrent = false;
+            
+            for (let i = 0; i < pages.length; i++) {
+                if (pages[i].style.display !== 'none' && !foundCurrent) {
+                    pages[i].style.display = 'none';
+                    foundCurrent = true;
+                    if (i + 1 < pages.length) {
+                        pages[i + 1].style.display = 'block';
+                    } else {
+                        pages[0].style.display = 'block';
+                    }
+                    break;
+                }
+            }
+        }
+
+        function checkAnswer(button, isCorrect) {
+            const buttons = button.parentNode.querySelectorAll('button');
+            buttons.forEach(btn => {
+                btn.classList.remove('correct', 'incorrect');
+                btn.disabled = true;
+            });
+            
+            if (isCorrect) {
+                button.classList.add('correct');
+                score += 10;
+            } else {
+                button.classList.add('incorrect');
+                const questionText = button.parentNode.querySelector('p').textContent;
+                const correctAnswer = Array.from(buttons).find(btn => btn.onclick.toString().includes('true')).textContent;
+                mistakes.push({question: questionText, correctAnswer: correctAnswer});
+            }
+            
+            updateScore();
+        }
+
+        function showHint(taskNumber) {
+            let hint;
+            switch(taskNumber) {
+                case 2:
+                    hint = "Жібек жыры XV-XVI ғасырларда пайда болған";
+                    break;
+                case 3:
+                    hint = "Жібек қыздың ерекше қасиеттері: әсемдігі, ақылы, шеберлігі";
+                    break;
+                case 4:
+                    hint = "'Эпикалық' - оқиғаны, тарихи құбылысты баяндайтын";
+                    break;
+                case 5:
+                    hint = "Дұрыс рет: 1. Кездесу, 2. Қашу, 3. Іздеу, 4. Қайту";
+                    break;
+                case 6:
+                    hint = "Жібек - 'Құдайым-ай...', Төлеген - 'Жібек деген қыз...', Бекежан - 'Төлеген деген жігіт...'";
+                    break;
+                default:
+                    hint = "Кілт ақпараты";
+            }
+            alert(hint);
+        }
+
+        function showAllHints() {
+            let allHints = "Барлық дұрыс жауаптар:\n\n";
+            allHints += "2-тапсырма: Жібек жыры XV-XVI ғасырларда пайда болған\n";
+            allHints += "3-тапсырма: Жібек қыздың ерекше қасиеттері: әсемдігі, ақылы, шеберлігі\n";
+            allHints += "4-тапсырма: 'Эпикалық' - оқиғаны, тарихи құбылысты баяндайтын\n";
+            allHints += "5-тапсырма: Дұрыс рет: 1. Кездесу, 2. Қашу, 3. Іздеу, 4. Қайту\n";
+            allHints += "6-тапсырма: Жібек - 'Құдайым-ай...', Төлеген - 'Жібек деген қыз...', Бекежан - 'Төлеген деген жігіт...'";
+            alert(allHints);
+        }
+
+        function shuffleAnswers(taskNumber) {
+            const container = document.querySelector(`#task${taskNumber}`);
+            const questions = container.querySelectorAll('.question');
+            
+            questions.forEach(question => {
+                const buttons = Array.from(question.querySelectorAll('button'));
+                for (let i = buttons.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    question.insertBefore(buttons[j], buttons[i]);
+                }
+            });
+        }
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            const data = ev.dataTransfer.getData("text");
+            const draggedElement = document.getElementById(data);
+            
+            // Егер элемент қазірдің өзінде drop аймағында болса, оны жылжытпау
+            if (draggedElement.parentNode !== ev.target) {
+                ev.target.appendChild(draggedElement);
+            }
+        }
+
+        function dropSequence(ev) {
+            ev.preventDefault();
+            const data = ev.dataTransfer.getData("text");
+            const draggedElement = document.getElementById(data);
+            
+            // Барлық элементтерді алып тастау
+            while (ev.target.firstChild) {
+                document.getElementById('events-sequence').appendChild(ev.target.firstChild);
+            }
+            
+            // Тарту элементін қосу
+            ev.target.appendChild(draggedElement);
+        }
+
+        function checkSequence() {
+            const dropArea = document.getElementById('sequence-drop');
+            const items = dropArea.querySelectorAll('.drag-item');
+            let allCorrect = true;
+            
+            items.forEach((item, index) => {
+                if (item.textContent === correctSequence[index]) {
+                    item.classList.add('correct');
+                    item.classList.remove('incorrect');
+                } else {
+                    item.classList.add('incorrect');
+                    item.classList.remove('correct');
+                    allCorrect = false;
+                }
+            });
+            
+            if (allCorrect && items.length === correctSequence.length) {
+                score += 20;
+                updateScore();
+                alert("Дұрыс! Сіз оқиғаларды дұрыс ретпен орналастырдыңыз!");
+            } else {
+                mistakes.push({question: "Оқиғаларды ретімен орналастыру", correctAnswer: correctSequence.join(", ")});
+                updateScore();
+            }
+        }
+
+        function shuffleEvents() {
+            const container = document.getElementById('events-sequence');
+            const items = Array.from(container.querySelectorAll('.drag-item'));
+            
+            for (let i = items.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                container.appendChild(items[j]);
+            }
+        }
+
+        function dropMatch(ev) {
+            ev.preventDefault();
+            const data = ev.dataTransfer.getData("text");
+            const draggedElement = document.getElementById(data);
+            
+            // Егер кейіпкер болса, оны қосу
+            if (draggedElement.classList.contains('character')) {
+                // Барлық кейіпкерлерді алып тастау
+                const existingChars = ev.target.querySelectorAll('.character');
+                existingChars.forEach(char => {
+                    document.querySelector('.character-match').appendChild(char);
+                    delete currentMatches[char.id];
+                });
+                
+                // Жаңа кейіпкерді қосу
+                ev.target.appendChild(draggedElement);
+            } 
+            // Егер сөз болса және кейіпкер бар болса, оны қосу
+            else if (draggedElement.classList.contains('quote') && ev.target.querySelector('.character')) {
+                const charId = ev.target.querySelector('.character').id;
+                currentMatches[charId] = draggedElement.id;
+                ev.target.appendChild(draggedElement);
+            }
+        }
+
+        function checkMatches() {
+            const dropAreas = document.querySelectorAll('#match-drop');
+            let allCorrect = true;
+            
+            dropAreas.forEach(area => {
+                const character = area.querySelector('.character');
+                const quote = area.querySelector('.quote');
+                
+                if (character && quote) {
+                    if (correctMatches[character.id] === quote.id) {
+                        character.classList.add('correct');
+                        quote.classList.add('correct');
+                        character.classList.remove('incorrect');
+                        quote.classList.remove('incorrect');
+                    } else {
+                        character.classList.add('incorrect');
+                        quote.classList.add('incorrect');
+                        character.classList.remove('correct');
+                        quote.classList.remove('correct');
+                        allCorrect = false;
+                    }
+                }
+            });
+            
+            if (allCorrect && Object.keys(currentMatches).length === Object.keys(correctMatches).length) {
+                score += 30;
+                updateScore();
+                alert("Дұрыс! Сіз кейіпкерлерді олардың сөздерімен дұрыс сәйкестендірдіңіз!");
+            } else {
+                mistakes.push({
+                    question: "Кейіпкерлер сөздерін сәйкестендіру", 
+                    correctAnswer: "Жібек - 'Құдайым-ай...', Төлеген - 'Жібек деген қыз...', Бекежан - 'Төлеген деген жігіт...'"
+                });
+                updateScore();
+            }
+        }
+
+        function shuffleCharacters() {
+            const container = document.querySelector('.character-match');
+            const characters = Array.from(container.querySelectorAll('.character'));
+            const quotes = Array.from(container.querySelectorAll('.quote'));
+            
+            // Кейіпкерлерді араластыру
+            for (let i = characters.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                container.insertBefore(characters[j], characters[i]);
+            }
+            
+            // Сөздерді араластыру
+            for (let i = quotes.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                container.insertBefore(quotes[j], quotes[i]);
+            }
+        }
+
+        function updateScore() {
+            document.getElementById('total-score').textContent = score;
+            
+            const mistakesList = document.getElementById('mistakes');
+            mistakesList.innerHTML = '';
+            
+            mistakes.forEach(mistake => {
+                const li = document.createElement('li');
+                li.innerHTML = `<strong>${mistake.question}</strong><br>Дұрыс жауап: ${mistake.correctAnswer}`;
+                mistakesList.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
