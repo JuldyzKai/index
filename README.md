@@ -745,7 +745,7 @@
             </div>
             
             <div class="character-card">
-                <img src="көң.jpeg" alt="Көңілді">
+                <img src="көң.jpg" alt="Көңілді">
                 <div>
                     <h4>Жұмысымды қалай орындадым?</h4>
                     <select id="self-rating">
@@ -766,7 +766,7 @@
             </div>
             
             <div class="character-card">
-                <img src="үй.jpeg" alt="Жігерлі">
+                <img src="үй.jpg" alt="Жігерлі">
                 <div>
                     <h4>Мен не үйрендім?</h4>
                     <textarea rows="3"></textarea>
